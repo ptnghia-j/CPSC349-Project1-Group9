@@ -1,6 +1,6 @@
 # CPSC349-Project1-Group9
 
-Fork CPSC349-Project1-Group9 repository and clone it to your local machine so we can collaborate on the project
+Please fork CPSC349-Project1-Group9 repository and clone it to your local machine so we can collaborate on the project
 
 This set up already used the command ```npm install``` which installs all modules listed as dependencies in package.json (defined in professors's package.json file from the origin repo). I believe we don't need to run this again
 
