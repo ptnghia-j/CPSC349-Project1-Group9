@@ -2,7 +2,7 @@
 
 Fork CPSC349-Project1-Group9 repository and clone it to your local machine so we can collaborate on the project
 
-#####Professor's instructions on installing eleventy packages: 
+##### Professor's instructions on installing eleventy packages: 
 
 Install and start the [Eleventy static site generator][1]:
 
