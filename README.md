@@ -1,10 +1,8 @@
-# Getting started with Project 1
+# CPSC349-Project1-Group9
 
-Clone the cpsc349-project1 repository locally:
+Fork CPSC349-Project1-Group9 repository and clone it to your local machine so we can collaborate on the project
 
-```shell-session
-git clone https://github.com/ProfAvery/cpsc349-project1.git
-```
+#####Professor's instructions on installing eleventy packages: 
 
 Install and start the [Eleventy static site generator][1]:
 
@@ -25,3 +23,6 @@ npm test
 [1]: https://www.11ty.dev/
 [2]: http://localhost:8080/
 [3]: https://validator.nu/
+
+
+
