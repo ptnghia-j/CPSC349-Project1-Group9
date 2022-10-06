@@ -8,16 +8,20 @@ site: CPSC 349 - Fall 2022 - Project 1
     <link rel="stylesheet" href="https://unpkg.com/mvp.css">
 </head>
 
-<nav>
-    <ul>
-        {% for page in collections.navigation %}
-        <li><a href="{{ page.url }}">{{ page.data.title }}</a></li>
-        {% endfor %}
-    </ul>
-</nav>
-
 <body>
-    {{ content }}
+    <header>
+        <nav>
+            <h3> Group 9 </h3>
+            <ul>
+                {%- for page in collections.navigation %}
+                <li><a href="{{ page.url }}">{{ page.data.title }}</a></li>
+                {%- endfor %}
+            </ul>
+        </nav>
+        <h1>{{ title }}</h1>
+        <p>{{ description }}</p>
+    </header>
+    <main>{{ content }}</main>
 </body>
 </html>
     

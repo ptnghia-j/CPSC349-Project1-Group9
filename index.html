@@ -1,53 +1,52 @@
 ---
 layout: base
 title: Home
+description: What can be more romantic than scenic views from sunset??
+pagination:
+    data: photos.z5wutri.media
+    size: 10
+    alias: photo
 tags: navigation
 ---
-<header>
-    <h1>{{ title }} </h1>
-</header>
 
 <section>
-    {%- assign id = "z5wutri" %}
+    <article>
         {%- for collection in pexels.collections.collections %}
-            {%- if collection.id == id %}
-                <h2> {{ collection.title }} </h2>
+            {%- if collection.id == 'z5wutri' %}
+                <h2> {{ collection.title }} </h2> 
                 {%- break %}
             {%- endif %}
         {%- endfor %}
-        <hr>
-    <article>
-        <!-- TODO: Description about the sun -->
-        <p> What can be more romantic than scenic views from sunset??  </p>
-        <p> "Placeholder text "</p>
+        
+        <aside>
+            <figcaption><a href="./Image/page-1168744/index.html">Editor's Pick: <br> {{ pagination.items[9].alt }}</a></figcaption><br>
+            <figure>
+                <img src={{ pagination.items[9].src.tiny }}>
+                <figcaption> Click the title above to view this image in the collection </figcaption>
+            </figure>
+        </aside>
     </article>
-            
-    <aside>
-        {%- for item in photos[id].media %}
-        <figure>
-            <img src={{ item.src.tiny }}>
-            <figcaption><a href="./Image/page-1/index.html">{{ item.alt }}</a></figcaption>
-            <figcaption> Click the title above to view images in this collection </figcaption>
-        </figure>
-        <details>
-            <summary> About this image </summary>
-            <ul>
-                <li>Author: {{ item.photographer }}</li>
-                <li>Photographer URL: <a href = {{ item.photographer_url }} >{{ item.photographer_url }}</a></li>
-                <li>Original URL: <a href = {{ item.src.original }} >{{ item.src.original }}</a></li>
-            </ul>
-        </details>
-        {%- break %}
-        {%- endfor %}
-    </aside>
+
+    {%- for image in pagination.items %}
+    <aside style="background-color: {{image.avg_color}};">
     
+        <figcaption><a href="./Image/page-{{ image.id }}/index.html">{{ image.alt }}</a></figcaption><br>
+        <figure>
+            <img src={{ image.src.tiny }}>
+            <figcaption> {{ image.photographer }} </figcaption>
+        </figure>
+    </aside>
+    {%- endfor %}
 </section>
+
+    <a href="{{ pagination.href.first }}">First</a> &nbsp
+    {%- if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %} &nbsp
+    Page {{ pagination.pageNumber | plus: 1 }} &nbsp
+    {%- if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %} &nbsp
+    <a href="{{ pagination.href.last }}">Last</a>
+
 
 <footer>
     <hr>
-    <p>
-        <small>
-            <a href="https://www.pexels.com">Photos provided by Pexels</a>
-        </small>
-    </p>
+    <p><small><a href="https://www.pexels.com">Photos provided by Pexels</a></small></p>
 </footer>
