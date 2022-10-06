@@ -1,0 +1,40 @@
+---
+layout: base
+pagination: 
+     data: photos.z5wutri.media
+     size: 1
+permalink: "Image/page-{{ pagination.pageNumber | plus: 1 }}/index.html"
+---
+
+{%- for image in pagination.items %}
+<h1>{{ image.alt }}</h1>
+<section style="background-color: {{image.avg_color}};">
+
+    {% assign bgcolor = image.avg_color %}
+<figure>
+    <img src={{ image.src.medium }}>
+</figure>
+ 
+<details>
+    <summary> About this image </summary>
+    <ul>
+        <li>{{ image.alt }}</li>
+        <li>Author: {{ image.photographer }}</li>
+        <li>Photographer URL: <a href = {{ image.photographer_url }} >{{ image.photographer_url }}</a></li>
+        <li>Original URL: <a href = {{ image.src.original }} >{{ image.src.original }}</a></li>
+    </ul>
+</details>
+{%- endfor %}
+</section>
+<hr>
+<ul>
+    <li><a href="{{ pagination.href.first }}">First</a></li>
+    <li>{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %}</li>
+
+    <li>
+        Page {{ pagination.pageNumber | plus: 1 }}
+    </li>
+    
+    <li>{% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}</li>
+    <li><a href="{{ pagination.href.last }}">Last</a></li>
+</ul>

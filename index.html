@@ -1,10 +1,47 @@
 ---
 layout: base
 title: Home
+tags: navigation
 ---
 <header>
     <h1>{{ title }} </h1>
 </header>
+
+<section>
+    {%- assign id = "z5wutri" %}
+        {%- for collection in pexels.collections.collections %}
+            {%- if collection.id == id %}
+                <h2> {{ collection.title }} </h2>
+                {%- break %}
+            {%- endif %}
+        {%- endfor %}
+        <hr>
+    <article>
+        <!-- TODO: Description about the sun -->
+        <p> What can be more romantic than scenic views from sunset??  </p>
+        <p> "Placeholder text "</p>
+    </article>
+            
+    <aside>
+        {%- for item in photos[id].media %}
+        <figure>
+            <img src={{ item.src.tiny }}>
+            <figcaption><a href="./image/page-1/index.html">{{ item.alt }}</a></figcaption>
+            <figcaption> Click the title above to view images in this collection </figcaption>
+        </figure>
+        <details>
+            <summary> About this image </summary>
+            <ul>
+                <li>Author: {{ item.photographer }}</li>
+                <li>Photographer URL: <a href = {{ item.photographer_url }} >{{ item.photographer_url }}</a></li>
+                <li>Original URL: <a href = {{ item.src.original }} >{{ item.src.original }}</a></li>
+            </ul>
+        </details>
+        {%- break %}
+        {%- endfor %}
+    </aside>
+    
+</section>
 
 <footer>
     <hr>
