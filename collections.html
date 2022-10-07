@@ -6,36 +6,31 @@ pagination:
      alias: photo
 permalink: "Image/page-{{ photo.id }}/index.html"
 eleventyComputed: 
-     title: "{{ photo.alt }}"
-     description: "by {{ photo.photographer }}"
+     title: "The Sun Collection"
+     description: " Every moment of the day is special, but sunset is the most romantic time of the day. "
 ---
 
 {%- for image in pagination.items %}
 <section style="background-color: {{image.avg_color}};">
+    <h2>{{ image.alt }} </h2>
     <figure>
-        <img src={{ image.src.medium }}>
+        <img src="{{ image.src.landscape }}" alt="{{ image.alt }}">
     </figure>
     <details>
         <summary> About this image </summary>
         <ul>
             <li>{{ image.alt }}</li>
             <li>Author: {{ image.photographer }}</li>
-            <li>Photographer URL: <a href = {{ image.photographer_url }} >{{ image.photographer_url }}</a></li>
-            <li>Original URL: <a href = {{ image.src.original }} >{{ image.src.original }}</a></li>
+            <li>Photographer URL: <a href="{{ image.photographer_url }}" >{{ image.photographer_url }}</a></li>
+            <li>Original URL: <a href="{{ image.src.original }}" >{{ image.src.original }}</a></li>
         </ul>
     </details>
-    {%- endfor %}
 </section>
+{%- endfor %}
 
 <hr>
-<ul>
-    <li><a href="{{ pagination.href.first }}">First</a></li>
-    <li>{%- if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %}</li>
-
-    <li>
-        Page {{ pagination.pageNumber | plus: 1 }}
-    </li>
-    
-    <li>{%- if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}</li>
-    <li><a href="{{ pagination.href.last }}">Last</a></li>
-</ul>
+<a href="{{ pagination.href.first }}">First</a> &nbsp;
+{%- if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %} &nbsp;
+Page {{ pagination.pageNumber | plus: 1 }} &nbsp;
+{%- if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %} &nbsp;
+<a href="{{ pagination.href.last }}">Last</a>

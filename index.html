@@ -1,51 +1,59 @@
 ---
 layout: base
 title: Home
-description: What can be more romantic than scenic views from sunset??
+description: "Who loves the sun? We do!"
 pagination:
     data: photos.z5wutri.media
     size: 10
     alias: photo
 tags: navigation
 ---
+    <!-- Thumbnail section -->
 
-<section>
-    <article>
-        {%- for collection in pexels.collections.collections %}
-            {%- if collection.id == 'z5wutri' %}
-                <h2> {{ collection.title }} </h2> 
-                {%- break %}
-            {%- endif %}
-        {%- endfor %}
-        
-        <aside>
-            <figcaption><a href="./Image/page-1168744/index.html">Editor's Pick: <br> {{ pagination.items[9].alt }}</a></figcaption><br>
-            <figure>
-                <img src={{ pagination.items[9].src.tiny }}>
-                <figcaption> Click the title above to view this image in the collection </figcaption>
-            </figure>
-        </aside>
-    </article>
+{%- assign editorPick = 9 %}
+{%- assign images = pagination.items %}
 
-    {%- for image in pagination.items %}
-    <aside style="background-color: {{image.avg_color}};">
-    
-        <figcaption><a href="./Image/page-{{ image.id }}/index.html">{{ image.alt }}</a></figcaption><br>
+<article>
+    <h2> Editor's Pick: </h2> 
+    <aside >
         <figure>
-            <img src={{ image.src.tiny }}>
-            <figcaption> {{ image.photographer }} </figcaption>
+            <p><a href="/CPSC349-Project1-Group9/Image/page-{{ images[editorPick].id }}/index.html"> <br> {{ images[editorPick].alt }}</a></p><br>
+            <img src="{{ images[editorPick].src.tiny }}" alt="{{images[editorPick].alt }}">
+            <figcaption><a href="{{ images[editorPick].photographer_url }}">{{ images[editorPick].photographer }}</a> </figcaption>
         </figure>
     </aside>
-    {%- endfor %}
-</section>
+</article>
+ 
+    
 
-    <a href="{{ pagination.href.first }}">First</a> &nbsp
-    {%- if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %} &nbsp
-    Page {{ pagination.pageNumber | plus: 1 }} &nbsp
-    {%- if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %} &nbsp
+<section>
+    <h2> Other photos in this collection </h2>
+    <hr>
+    {%- assign count = 0 %}
+    {%- for image in images %}
+        {%- if count != editorPick %}
+            <aside>
+                <p><a href="/CPSC349-Project1-Group9/Image/page-{{ image.id }}/index.html">{{ image.alt }}</a></p><br>
+                <figure>
+                    <img src="{{ image.src.tiny }}" alt="{{ image.alt }}">
+                    <figcaption><a href="{{ image.photographer_url }}">{{ image.photographer }}</a> </figcaption>
+                </figure>
+            </aside>
+        {%- endif %}
+        {%- assign count = count | plus: 1 %}
+    {%- endfor %}
+
+</section>
+        
+    <!-- Pagination  -->
+
+    <a href="{{ pagination.href.first }}">First</a> &nbsp;
+    {%- if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %} &nbsp;
+    Page {{ pagination.pageNumber | plus: 1 }} &nbsp;
+    {%- if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %} &nbsp;
     <a href="{{ pagination.href.last }}">Last</a>
 
-
+    <!-- Footer  -->
 <footer>
     <hr>
     <p><small><a href="https://www.pexels.com">Photos provided by Pexels</a></small></p>
