@@ -12,28 +12,28 @@ description: "Our team member github links ..."
 <section>
     <h2> Team Members </h2>
     <hr>
-    {% for i in (1..4) %}
+    {%- for i in (1..4) %}
         <article>
             <h3> Team Member {{ i }}</h3>
             <aside>
-                {% if i == 1 %} 
+                {%- if i == 1 %} 
                     <h4> Cristopher Briseno </h4>
                     <a href=""> Github Repo </a>
-                {% endif %} 
-                {% if i == 2 %} 
+                {%- endif %} 
+                {%- if i == 2 %} 
                     <h4> Nghia Phan </h4>
                     <a href="https://github.com/ptnghia-j/CPSC349-Project1-Group9/branches"> Github Repo </a>
-                {% endif %} 
-                {% if i == 3 %} 
+                {%- endif %} 
+                {%- if i == 3 %} 
                     <h4> Thomas Phan </h4>
                     <a href=""> Github Repo </a>
-                {% endif %} 
-                {% if i == 4 %} 
+                {%- endif %} 
+                {%- if i == 4 %} 
                     <h4> Karnikaa Velumani </h4>
                     <a href=""> Github Repo </a>
-                {% endif %}
+                {%- endif %}
             </aside>
         </article>
-    {% endfor %}
+    {%- endfor %}
 </section>
 
