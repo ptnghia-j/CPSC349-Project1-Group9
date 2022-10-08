@@ -12,7 +12,7 @@ To validate the generated HTML:
 npm test
 ```
 
-Some of the hyperlink in the original readme linking to the documented websites (for reference only): <br>
+Some of the hyperlink in the original readme linking to the documented websites (for reference): <br>
 https://www.11ty.dev/ <br>
 http://localhost:8080/ <br>
 https://validator.nu/ <br>

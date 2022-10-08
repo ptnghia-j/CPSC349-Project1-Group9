@@ -2,7 +2,53 @@
 title: About Us
 tags: navigation
 layout: base
-description: "Our team member github links ..."
+description: "Our team member GitHub ..."
 ---
 
-<!-- TODO: Write about ourselves -->
+<h2> Project's Description </h2>
+<p> In this project, we built a website presenting a collection of photos about the sun ... .The project requires Node.js and NPM. We also used Eleventy static site generator to quickly generate sites with templates. Nu Html Check are used to verify the html codes.</p>
+<p> The code written to be checked at local host is on main branch. The code published to Github Page is on deployPage branch.  </p>
+
+<h2>Pexels</h2>
+<p>The photos we used were from <a href = "https://www.pexels.com/"> Pexels</a></p>
+<p>Pexels is a website offering freely-usable photographs shared by other creators and can be a useful soruce for website design</p>
+
+<section>
+    <h2> Team Members </h2>
+    <hr>
+    {%- for i in (1..4) %}
+        <article>
+            <h3> Team Member {{ i }}</h3>
+            <aside>
+                {%- if i == 1 %}
+                    <h4> Cristopher Briseno </h4>
+                    <a href="https://github.com/cjbriseno/CPSC349-Project1-Group9"> Github Repo </a>
+                {%- endif %}
+                {%- if i == 2 %}
+                    <h4> Nghia Phan </h4>
+                    <a href="https://github.com/ptnghia-j/CPSC349-Project1-Group9"> Github Repo </a>
+                {%- endif %}
+                {%- if i == 3 %}
+                    <h4> Thomas Phan </h4>
+                    <a href="https://github.com/tummeito/CPSC349-Project1-Group9"> Github Repo </a>
+                {%- endif %} 
+                {%- if i == 4 %} 
+                    <h4> Karnikaa Velumani </h4>
+                    <a href="https://github.com/karnikaavelumani/CPSC349-Project1-Group9"> Github Repo </a>
+                {%- endif %}
+            </aside>
+        </article>
+    {%- endfor %}
+</section>
+
+<!-- Footer -->
+
+<footer>
+    <hr>
+    <p>Group 9</p>
+
+    <p><small><a href =
+    "/aboutUs/">About Us</a> |
+    <a href="https://www.pexels.com">Photos provided by Pexels</a> |
+    Copyright © 2022 Group 9 <small></p>
+</footer>
