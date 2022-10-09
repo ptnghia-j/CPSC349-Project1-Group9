@@ -1,5 +1,6 @@
 ---
 site: CPSC 349 - Fall 2022 - Project 1
+repo: /CPSC349-Project1-Group9
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +16,7 @@ site: CPSC 349 - Fall 2022 - Project 1
             <h3> Group 9 </h3>
             <ul>
                 {%- for page in collections.navigation %}
-                <li><a href="{{ page.url }}">{{ page.data.title }}</a></li>
+                <li><a href="{{ repo }}{{ page.url }}">{{ page.data.title }}</a></li>
                 {%- endfor %}
             </ul>
         </nav>
@@ -27,19 +28,18 @@ site: CPSC 349 - Fall 2022 - Project 1
     <main>{{ content }}
         {% if title != "About Us" %}
             <!-- Pagination  -->
-            <a href="{{ pagination.href.first }}">First</a> &nbsp;
-            {%- if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %} &nbsp;
+            <a href="{{ repo }}{{ pagination.href.first }}">First</a> &nbsp;
+            {%- if pagination.href.previous %}<a href="{{ repo }}{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %} &nbsp;
             Page {{ pagination.pageNumber | plus: 1 }} &nbsp;
-            {%- if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %} &nbsp;
-            <a href="{{ pagination.href.last }}">Last</a>
+            {%- if pagination.href.next %}<a href="{{ repo }}{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %} &nbsp;
+            <a href="{{ repo }}{{ pagination.href.last }}">Last</a>
 
             <!-- Footer  -->
             <footer>
                 <hr>
                 <p>Group 9</p>
 
-                <p><small><a href =
-                "/aboutUs/">About Us</a> |
+                <p><small><a href ="{{ repo }}/aboutUs/">About Us</a> |
                 <a href="https://www.pexels.com">Photos provided by Pexels</a> |
                 Copyright © 2022 Group 9 <small></p>
             </footer>

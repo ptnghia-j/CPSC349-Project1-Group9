@@ -17,15 +17,13 @@ tags: navigation
     <h2> Editor's Pick: </h2> 
     <aside >
         <figure>
-            <p><a href="/Image/page-{{ images[editorPick].id }}/index.html"> <br> {{ images[editorPick].alt }}</a></p><br>
+            <p><a href="{{ repo }}/Image/page-{{ images[editorPick].id }}/index.html"> <br> {{ images[editorPick].alt }}</a></p><br>
             <img src="{{ images[editorPick].src.tiny }}" alt="{{images[editorPick].alt }}">
             <figcaption><a href="{{ images[editorPick].photographer_url }}">{{ images[editorPick].photographer }}</a> </figcaption>
         </figure>
     </aside>
 </article>
  
-    
-
 <section>
     <h2> Other photos in this collection </h2>
     <hr>
@@ -33,7 +31,7 @@ tags: navigation
     {%- for image in images %}
         {%- if count != editorPick %}
             <aside>
-                <p><a href="/Image/page-{{ image.id }}/index.html">{{ image.alt }}</a></p><br>
+                <p><a href="{{ repo }}/Image/page-{{ image.id }}/index.html">{{ image.alt }}</a></p><br>
                 <figure>
                     <img src="{{ image.src.tiny }}" alt="{{ image.alt }}">
                     <figcaption><a href="{{ image.photographer_url }}">{{ image.photographer }}</a> </figcaption>
