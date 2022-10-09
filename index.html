@@ -15,13 +15,15 @@ tags: navigation
 
 <article>
     <h2> Editor's Pick: </h2> 
-    <aside >
-        <figure>
-            <p><a href="{{ repo }}/Image/page-{{ images[editorPick].id }}/index.html"> <br> {{ images[editorPick].alt }}</a></p><br>
-            <img src="{{ images[editorPick].src.tiny }}" alt="{{images[editorPick].alt }}">
-            <figcaption><a href="{{ images[editorPick].photographer_url }}">{{ images[editorPick].photographer }}</a> </figcaption>
-        </figure>
-    </aside>
+    <center>
+        <aside >
+            <figure>
+                <p><a href="{{ repo }}/Image/page-{{ images[editorPick].id }}/index.html"> <br> {{ images[editorPick].alt }}</a></p><br>
+                <img src="{{ images[editorPick].src.tiny }}" alt="{{images[editorPick].alt }}">
+                <figcaption><a href="{{ images[editorPick].photographer_url }}">{{ images[editorPick].photographer }}</a> </figcaption>
+            </figure>
+        </aside>
+    </center>
 </article>
  
 <section>
