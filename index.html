@@ -14,7 +14,8 @@ tags: navigation
 {%- assign images = pagination.items %}
 
 <article>
-    <h2> Editor's Pick: </h2> 
+    <h2> Editor's Pick: </h2>
+    <center>
     <aside >
         <figure>
             <p><a href="/Image/page-{{ images[editorPick].id }}/index.html"> <br> {{ images[editorPick].alt }}</a></p><br>
@@ -22,9 +23,10 @@ tags: navigation
             <figcaption><a href="{{ images[editorPick].photographer_url }}">{{ images[editorPick].photographer }}</a> </figcaption>
         </figure>
     </aside>
+    </center>
 </article>
- 
-    
+
+
 
 <section>
     <h2> Other photos in this collection </h2>
@@ -44,4 +46,3 @@ tags: navigation
     {%- endfor %}
 
 </section>
-        
